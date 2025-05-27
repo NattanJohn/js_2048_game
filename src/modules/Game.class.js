@@ -106,11 +106,14 @@ export class Game {
   }
 
   transpose() {
-    const newBoard = this.board[0].map((_, i) => {
-      return this.board.map((row) => row[i]);
-    });
-
-    this.board = newBoard;
+    for (let i = 0; i < 4; i++) {
+      for (let j = i + 1; j < 4; j++) {
+        [this.board[i][j], this.board[j][i]] = [
+          this.board[j][i],
+          this.board[i][j],
+        ];
+      }
+    }
   }
 
   checkGameOver() {
@@ -120,7 +123,6 @@ export class Game {
       return;
     }
 
-    // check for possible merges
     for (let r = 0; r < 4; r++) {
       for (let c = 0; c < 4; c++) {
         const val = this.board[r][c];

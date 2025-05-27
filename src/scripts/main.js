@@ -41,7 +41,6 @@ startButton.addEventListener('click', () => {
   game.restart();
   renderBoard();
 
-  // Transforma o botão Start em Restart
   startButton.classList.remove('start');
   startButton.classList.add('restart');
   startButton.textContent = 'Restart';
